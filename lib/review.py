@@ -47,8 +47,12 @@ class Review:
         return self._employee_id
     
     @employee_id.setter
-    def employee_id(self, new_employee):
-        pass
+    def employee_id(self, employee_id):
+        if type(employee_id) is int and Employee.find_by_id(employee_id):
+            self._employee_id = employee_id
+        else:
+            raise ValueError(
+                "employee_id must reference an employee in the database")
         
 
     @classmethod

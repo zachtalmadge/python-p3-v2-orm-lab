@@ -4,6 +4,7 @@ from department import Department
 
 class Employee:
 
+
     # Dictionary of objects saved to the database.
     all = {}
 
@@ -171,6 +172,7 @@ class Employee:
         """
 
         row = CURSOR.execute(sql, (id,)).fetchone()
+        print(row)
         return cls.instance_from_db(row) if row else None
 
     @classmethod
